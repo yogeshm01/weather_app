@@ -13,6 +13,7 @@ async function checkWeather(city) {
         document.querySelector('.error').style.display = 'block';
         document.querySelector('.weather').style.display = 'none';
     }
+    
     else {
         let data = await response.json();
 
