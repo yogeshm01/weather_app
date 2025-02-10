@@ -24,23 +24,23 @@ async function checkWeather(city) {
 
         if (data.weather[0].main == 'Clouds') {
             weatherIcon.src = 'images/clouds.png';
-            bgVideo.src = 'clouds.mp4';
+
         }
         else if (data.weather[0].main == 'Clear') {
             weatherIcon.src = 'images/clear.png';
-            bgVideo.src = 'clear.mp4';
+
         }
         else if (data.weather[0].main == 'Rain') {
             weatherIcon.src = 'images/rain.png';
-            bgVideo.src = 'rain.mp4';
+
         }
         else if (data.weather[0].main == 'Drizzle') {
             weatherIcon.src = 'images/drizzle.png';
-            bgVideo.src = 'drizzle.mp4';
+
         }
         else if (data.weather[0].main == 'Mist') {
             weatherIcon.src = 'images/mist.png';
-            bgVideo.src = 'mist.mp4';
+
         }
         // console.log('Selected Video:', videoSrc);  // Debugging line
         // bgVideo.src = videoSrc;
@@ -72,3 +72,21 @@ searchBox.addEventListener('keypress', (event) => {
 document.getElementById('cityInput').focus();
 
 checkWeather();
+
+function changeBackground() {
+    // Randomly select a percentage for the transition
+    const percentage = Math.random() * 100;
+
+    // Determine the two gradient colors based on percentage
+    const startColor = percentage < 50 ? '#00aaff' : '#87ceeb'; // Start with cyan or light blue
+    const endColor = percentage < 50 ? '#87ceeb' : '#00aaff';   // End with light blue or cyan
+
+    // Apply the gradient to the body
+    document.body.style.background = `linear-gradient(to bottom, ${startColor}, ${endColor})`;
+  }
+
+  // Set interval to change background every 5 seconds
+  setInterval(changeBackground, 5000);
+
+  // Initially call the function to set the first background
+  changeBackground();
